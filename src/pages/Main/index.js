@@ -17,7 +17,9 @@ import {
   Name,
   Bio,
   ProfileButton,
-  ProfileButtonText
+  ProfileButtonText,
+  DeleteProfileButton,
+  DeleteProfileButtonText,
 } from './styles';
 
 export default class Main extends Component {
@@ -83,6 +85,12 @@ export default class Main extends Component {
     navigation.navigate('User', { user });
   }
 
+  handleDeleteUser = (user) => {
+    this.setState({
+      users: this.state.users.filter(u => u !== user)
+    })
+  }
+
   render() {
     const {users, newUser, loading} = this.state;
 
@@ -119,6 +127,9 @@ export default class Main extends Component {
               <ProfileButton onPress={() => this.handleNavigate(item)}>
                 <ProfileButtonText>Ver Perfil</ProfileButtonText>
               </ProfileButton>
+              <DeleteProfileButton onPress={() => this.handleDeleteUser(item)}>
+                <DeleteProfileButtonText>Delete</DeleteProfileButtonText>
+              </DeleteProfileButton>
             </User>
           )}
         />
