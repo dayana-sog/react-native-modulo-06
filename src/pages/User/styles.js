@@ -49,7 +49,6 @@ export const Starred = styled.View`
   flex-direction: row;
   align-items: center;
   border: 1px solid #888888;
-
 `;
 
 export const OwnerAvatar = styled.Image`
